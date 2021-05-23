@@ -11,8 +11,9 @@ The project aims to predict whether an e-commerce company should go for website 
 # Plots:
 The Analysys results can be visualized using the Plots: 
 
-Description of the Plots are given below
 * Figure 1: jointplot to compare 'Time on Website' and 'Yearly Amount Spent' variables
+![Calegorical_values](https://github.com/srikanthv0610/Logistic_Regression-Heart_Disease_Prediction/blob/main/Plots/Figure_1.png)
+
 * Figure 2: jointplot to compare 'Time on App' and 'Yearly Amount Spent' variables
 * Figure 3: jointplot to compare 'Time on App' and 'Length of Membership' variables
 * Figure 4: pairplot to compare our datasets
