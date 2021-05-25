@@ -1,5 +1,5 @@
-#A Linear Regression project
-#trying to predict whether e-commerce company should go for mobile app or website sales
+### Linear Regression Model
+# Objective: Predict whether an e-commerce company should go for mobile app or website sales using Linear Regression Technique  
 
 import pandas as pd
 import numpy as np
@@ -29,16 +29,13 @@ sns.jointplot(x='Time on App',y='Length of Membership',kind='hex',data=customers
 
 sns.pairplot(customers)
 
-#Create a linear model plot (using seaborn's lmplot) of
-#Yearly Amount Spent vs. Length of Membership.
-
+#Create a linear model plot (using seaborn's lmplot) of Yearly Amount Spent vs. Length of Membership.
 sns.lmplot(x='Length of Membership',y='Yearly Amount Spent',data=customers)
 
-#Training and Testing Data
-#Now that we've explored the data a bit, let's go ahead and split the data into
-#training and testing sets. Set a variable X equal to the numerical features of
-#the customers and a variable y equal to the "Yearly Amount Spent" column.
-
+### Training and Testing Data
+#Training and Testing set split:
+#Set X (independent variable matrix) equal to the numerical features of the customers,
+#Set y (dependent variable) equal to the "Yearly Amount Spent" column.
 
 y = customers['Yearly Amount Spent']
 X = customers[['Avg. Session Length', 'Time on App','Time on Website', 'Length of Membership']]
@@ -51,8 +48,6 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=40)
 
-#Training the Model
-
 #Import LinearRegression from sklearn.linear_model
 
 from sklearn.linear_model import LinearRegression
@@ -63,33 +58,27 @@ lm = LinearRegression()
 lm.fit(X_train,y_train)
 LinearRegression(copy_X=True, fit_intercept=True, n_jobs=1, normalize=False)
 
-
-#Print out the coefficients of the model
-# The coefficients
+#Print out the Coefficients of the model
 print('Coefficients: \n', lm.coef_)
 #Coefficients:
-# [ 25.287716  39.171783   0.321668  61.248401]
-
+# [ 25.287716  39.171783   
+#    0.321668  61.248401]
 
 #Predicting Test Data:
-
-
 predictions = lm.predict(X_test)
 
 #Create a scatterplot of the real test values versus the predicted values.
-
 plt.figure()
 plt.scatter(y_test,predictions)
 plt.xlabel('Y Test')
 plt.ylabel('Predicted Y')
 
-#Evaluating the Model
+### Evaluating the Model
 
-#Evaluate our model performance by calculating the residual sum of squares and the explained variance score (R^2)
-
+#Evaluate our model performance by calculating the residual sum of squares and the explained variance score (R^2).
 #Calculate the Mean Absolute Error, Mean Squared Error, and the Root Mean Squared Error.
 
-# calculate the metrics
+# calculate the quality metrics
 from sklearn import metrics
 
 print('MAE:', metrics.mean_absolute_error(y_test, predictions))
@@ -103,8 +92,7 @@ print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
 
 #Residuals
 
-#Plot a histogram of the residuals and make sure it looks normally distributed.
-
+#Plot a histogram of the residuals and check if it looks normally distributed.
 plt.figure()
 sns.distplot((y_test-predictions),bins=50)
 plt.show()
