@@ -1,5 +1,7 @@
 # Linear Regression Prediction: MobileApp or Website sales?
-The project aims to predict whether an e-commerce company should go for website sales or a mobile app using the available customer datasets
+The project aims to predict whether an e-commerce company should go for website sales or a mobile app using the available customer datasets.
+
+![Image](https://github.com/srikanthv0610/Linear-Regression-Prediction-Mobile-App-or-Website-Sales-/blob/main/plot_results/App_Website.png)
 
 ## Tools Used:
 * Pandas
